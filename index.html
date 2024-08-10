@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock, Timer, and Stopwatch</title>
+    <!-- CSS Link -->
     <link rel="stylesheet" href="/Advance Clock Project/assets/css/style.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
+
+        <header class="site-header">
+            <h1>Advance Clock</h1>
+            <p>Final Project Group 11 BST Schematics</p>
+        </header>
+
         <nav>
             <ul>
-                <li><a href="#" id="clock-menu">Clock</a></li>
-                <li><a href="#" id="timer-menu">Timer</a></li>
-                <li><a href="#" id="stopwatch-menu">Stopwatch</a></li>
+                <li>
+                    <a href="#" id="clock-menu">Clock</a>
+                </li>
+                <li>
+                    <a href="#" id="timer-menu">Timer</a>
+                </li>
+                <li>
+                    <a href="#" id="stopwatch-menu">Stopwatch</a>
+                </li>
             </ul>
             <div id="toggle-dark-mode" class="mode-icon">
                 <i id="mode-icon" class="fas fa-moon"></i>
             </div>
         </nav>
 
-        <div id="clock-section" class="section">
-            <h1>Real-Time Clock</h1>
-            <div id="clock"></div>
-        </div>
-        
-        <div id="timer-section" class="section">
-            <h1>Timer</h1>
-            <div id="timer">
-                <input type="number" id="minutes" placeholder="Minutes" min="0">
-                <input type="number" id="seconds" placeholder="Seconds" min="0">
-                <button id="start-timer">Start Timer</button>
-                <button id="stop-timer">Stop Timer</button>
-                <div id="timer-display">00:00</div>
-            </div>
-        </div>
-        
-        <div id="stopwatch-section" class="section">
-            <h1>Stopwatch</h1>
-            <div id="stopwatch">
-                <button id="start-stopwatch">Start</button>
-                <button id="stop-stopwatch">Stop</button>
-                <button id="reset-stopwatch">Reset</button>
-                <div id="stopwatch-display">00:00:00</div>
-            </div>
-        </div>
+        <main>
+            <section id="clock-section" class="section">
+                <h2>Real-Time Clock</h2>
+                <div id="clock" aria-live="polite"></div>
+            </section>
+
+            <section id="timer-section" class="section">
+                <h2>Timer</h2>
+                <div id="timer">
+                    <label for="minutes">Minutes</label>
+                    <input type="number" id="minutes" placeholder="Minutes" min="0">
+                    <label for="seconds">Seconds</label>
+                    <input type="number" id="seconds" placeholder="Seconds" min="0">
+                    <button id="start-timer">Start Timer</button>
+                    <button id="stop-timer">Stop Timer</button>
+                    <div id="timer-display" aria-live="polite">00:00</div>
+                </div>
+            </section>
+
+            <section id="stopwatch-section" class="section">
+                <h2>Stopwatch</h2>
+                <div id="stopwatch">
+                    <button id="start-stopwatch">Start</button>
+                    <button id="stop-stopwatch">Stop</button>
+                    <button id="reset-stopwatch">Reset</button>
+                    <div id="stopwatch-display" aria-live="polite">00:00:00</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+        </footer>
     </div>
+
+    <!-- JS Link -->
     <script src="/Advance Clock Project/assets/js/script.js"></script>
 </body>
+
 </html>
