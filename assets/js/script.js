@@ -38,12 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('timer-display');
     const startTimerButton = document.getElementById('start-timer');
     const stopTimerButton = document.getElementById('stop-timer');
+    const resetTimerButton = document.getElementById('reset-timer');
     const audio = new Audio('https://www.soundjay.com/button/sounds/beep-07.mp3');
 
+    function resetTimer() {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = '00:00:00';
+        document.getElementById('hours').value = 0;
+        document.getElementById('minutes').value = 0;
+        document.getElementById('seconds').value = 0;
+    }
+
     startTimerButton.addEventListener('click', () => {
+        const hours = parseInt(document.getElementById('hours').value, 10);
         const minutes = parseInt(document.getElementById('minutes').value, 10);
         const seconds = parseInt(document.getElementById('seconds').value, 10);
-        let totalTime = (minutes * 60) + seconds;
+        let totalTime = (hours * 3600) + (minutes * 60) + seconds;
 
         if (isNaN(totalTime) || totalTime <= 0) {
             alert('Please enter a valid time.');
@@ -57,15 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Time\'s up!');
             } else {
                 totalTime--;
-                const mins = Math.floor(totalTime / 60);
+                const hrs = Math.floor(totalTime / 3600);
+                const mins = Math.floor((totalTime % 3600) / 60);
                 const secs = totalTime % 60;
-                timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                timerDisplay.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
             }
         }, 1000);
     });
 
     stopTimerButton.addEventListener('click', () => {
         clearInterval(timerInterval);
+    });
+
+    resetTimerButton.addEventListener('click', () => {
+        resetTimer();
     });
 
     // Stopwatch
@@ -75,15 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const startStopwatchButton = document.getElementById('start-stopwatch');
     const stopStopwatchButton = document.getElementById('stop-stopwatch');
     const resetStopwatchButton = document.getElementById('reset-stopwatch');
+    const secondHand = document.getElementById('second-hand');
 
     startStopwatchButton.addEventListener('click', () => {
         stopwatchInterval = setInterval(() => {
-            elapsedTime += 10;
+            elapsedTime += 100;
+            const seconds = (elapsedTime / 1000) % 60;
+            const rotation = seconds * 6; // 360 degrees / 60 seconds = 6 degrees per second
+            secondHand.style.transform = `rotate(${rotation}deg)`;
             const hours = Math.floor(elapsedTime / 3600000);
             const mins = Math.floor((elapsedTime % 3600000) / 60000);
             const secs = Math.floor((elapsedTime % 60000) / 1000);
             stopwatchDisplay.textContent = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }, 10);
+        }, 100);
     });
 
     stopStopwatchButton.addEventListener('click', () => {
@@ -93,13 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
     resetStopwatchButton.addEventListener('click', () => {
         clearInterval(stopwatchInterval);
         elapsedTime = 0;
+        secondHand.style.transform = 'rotate(0deg)';
         stopwatchDisplay.textContent = '00:00:00';
     });
 
     // Dark Mode
     const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
     const modeIcon = document.getElementById('mode-icon');
-    
+
     toggleDarkModeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         document.body.classList.toggle('light-mode');
@@ -112,6 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Set default mode to light mode
+    // Set to light mode
     document.body.classList.add('light-mode');
 });
