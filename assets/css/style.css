@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
     --dark-blue: #021526;
     --medium-blue: #03346E;
@@ -10,6 +11,7 @@
     --fontFamily-josefin-sans: 'Josefin Sans';
 }
 
+/* Light Mode Styles */
 body.light-mode {
     --background-color: var(--light-blue);
     --text-color: var(--dark-blue);
@@ -17,6 +19,7 @@ body.light-mode {
     --button-text-color: var(--light-yellow);
 }
 
+/* Dark Mode Styles */
 body.dark-mode {
     --background-color: var(--dark-blue);
     --text-color: var(--light-yellow);
@@ -24,6 +27,7 @@ body.dark-mode {
     --button-text-color: var(--medium-blue);
 }
 
+/* General Body Styles */
 body {
     font-family: var(--fontFamily-josefin-sans);
     display: flex;
@@ -36,6 +40,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+/* Header Styles */
 header {
     position: fixed;
     top: 0;
@@ -44,8 +49,8 @@ header {
     justify-content: space-between;
     align-items: center;
     background: var(--background-color);
-    padding: 10px 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px 50px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -54,25 +59,29 @@ header h1 {
     margin: 0;
     padding-left: 20px;
     flex: 1;
-
 }
 
 #toggle-dark-mode {
-    padding-right: 20px; 
+    padding-right: 20px;
 }
 
-.container {
+/* Container Styles */
+section.container {
     margin-top: 60px;
     text-align: center;
+    position: fixed;
     background: var(--background-color);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 600px;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
     color: var(--text-color);
 }
 
+/* Navigation Styles */
 nav {
     margin-bottom: 20px;
 }
@@ -98,6 +107,7 @@ nav a:hover {
     color: var(--button-text-color);
 }
 
+/* Dark Mode Icon Styles */
 .mode-icon {
     font-size: 24px;
     cursor: pointer;
@@ -112,6 +122,7 @@ body.dark-mode .mode-icon i {
     color: var(--light-yellow);
 }
 
+/* Button Styles */
 button {
     margin: 5px;
     padding: 10px 20px;
@@ -121,6 +132,7 @@ button {
     color: var(--button-text-color);
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
+    font-family: var(--fontFamily-josefin-sans);
 }
 
 button:hover {
@@ -128,15 +140,46 @@ button:hover {
     color: var(--button-bg-color);
 }
 
+/* Section Styles */
 .section {
+    margin-top: 50px;
     display: none;
 }
 
-#clock, #timer-display, #stopwatch-display {
+#clock-section {
+    display: block;
+}
+
+/* Timezone Selector Styles */
+.timezone-selector-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.timezone-display {
+    margin: 0 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Display Styles */
+#clock, #timer-display, #stopwatch-display, #date {
     font-size: 2em;
     margin-bottom: 20px;
 }
 
+/* Input Container Styles */
 .input-container {
     display: flex;
     justify-content: center;
@@ -155,6 +198,7 @@ button:hover {
     text-align: center;
     font-size: 1.2em;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .scroll-container label {
@@ -162,6 +206,7 @@ button:hover {
     font-size: 0.8em;
 }
 
+/* Stopwatch Styles */
 .clock-container {
     position: relative;
 }
