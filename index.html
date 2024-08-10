@@ -28,7 +28,8 @@
         </div>
     </header>
 
-    <div class="container">
+    <section class="container">
+
         <nav>
             <ul>
                 <li><a href="#" id="clock-menu">Clock</a></li>
@@ -39,7 +40,13 @@
 
         <div id="clock-section" class="section">
             <h2>Real-Time Clock</h2>
-            <p>Western Indonesia Time</p>
+            <p>Choose Time Zone:</p>
+            <div class="timezone-selector-container">
+                <button id="prev-timezone" class="arrow-button">&lt;</button>
+                <span id="timezone-display" class="timezone-display">WIB</span>
+                <button id="next-timezone" class="arrow-button">&gt;</button>
+            </div>
+            <div id="date"></div>
             <div id="clock"></div>
         </div>
         
@@ -82,7 +89,8 @@
                 <button id="reset-stopwatch">Reset</button>
             </div>
         </div>
-    </div>
+
+    </section>
 
     <script src="/Advance Clock Project/assets/js/script.js"></script>
 </body>
