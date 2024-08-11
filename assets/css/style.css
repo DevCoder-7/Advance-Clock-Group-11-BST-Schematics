@@ -67,7 +67,7 @@ header h1 {
 
 /* Container Styles */
 section.container {
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;
     position: fixed;
     background: var(--background-color);
