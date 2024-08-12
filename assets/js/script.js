@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set offset based on selected timezone
         switch(timezones[currentZoneIndex]) {
             case 'WITA':
-                offset = 8; // UTC+8
+                offset = 1; // UTC+8
                 break;
             case 'WIT':
-                offset = 9; // UTC+9
+                offset = 2; // UTC+9
                 break;
             case 'WIB':
             default:
-                offset = 7; // UTC+7
+                offset = 0; // UTC+7
                 break;
         }
 
